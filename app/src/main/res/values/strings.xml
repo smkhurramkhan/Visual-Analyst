@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Visual Analyst</string>
+
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="title_activity_crop">crop</string>
+
+
+
+    <string name="baseUrl">http://circularbyte.com/theapi/uploadimagebase64.php</string>
+</resources>

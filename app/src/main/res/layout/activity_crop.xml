@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgradient">
+
+    <!--<android.support.design.widget.AppBarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/virtual"></ImageView>
+
+    <Button
+        android:id="@+id/open_camera"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_below="@+id/logo"
+        android:text="Open Camera"
+        android:background="@color/camBtnBg"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_menu_camera" />
+    <Button
+        android:id="@+id/open_Gallery"
+        android:layout_width="265dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/open_camera"
+        android:text="Open Gallery"
+        android:background="@color/camBtnBg"
+        android:textColor="@color/txtWhite"
+        android:textSize="25dp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_menu_camera"/>
+
+
+
+
+</RelativeLayout>

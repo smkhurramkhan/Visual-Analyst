@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4880B4</color>
+    <color name="colorPrimaryDark">#356690</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="txtColor">#C2AE3D</color>
+
+    <color name="txtWhite">#ffffff</color>
+
+    <color name="endcolortwo">#14786b</color>
+    <color name="startcolortwo">#5FD9EB</color>
+
+    <color name="buttonBg">#356690</color>
+    <color name="buttonText">#cbecfd</color>
+
+    <color name="teams">#244DAD</color>
+
+
+    <color name="KK">#1f447d</color>
+    <color name="PZ">#fda6ce09</color>
+    <color name="QG">#4c3179</color>
+    <color name="LQ">#be393b</color>
+    <color name="IU">#e17b27</color>
+    <color name="MS">#0e8323</color>
+
+    <color name="played">#7c1810</color>
+    <color name="won">#0e8323</color>
+    <color name="lost">#ea3645</color>
+    <color name="draw">#0e7f83</color>
+    <color name="points">#063a48</color>
+    <color name="netrr">#03410e</color>
+
+    <color name="camBtnBg">#0F0F0F</color>
+
+    <color name="splashtextview">#356690</color>
+</resources>
