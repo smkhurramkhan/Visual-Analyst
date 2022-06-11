@@ -26,7 +26,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.nabinbhandari.android.permissions.PermissionHandler
 import com.nabinbhandari.android.permissions.Permissions
@@ -42,7 +41,7 @@ import java.util.concurrent.TimeUnit
 /**
  * Basic fragments for the Camera.
  */
-class Camera2BasicFragment : Fragment(){
+class Camera2BasicFragment : Fragment() {
     private val lock = Any()
     private var runClassifier = false
     private var checkedPermissions = false
@@ -189,7 +188,7 @@ class Camera2BasicFragment : Fragment(){
         val activity = activity
         activity?.runOnUiThread {
             texthere = text
-            textView!!.text = "$text hahaha"
+            textView?.text = "$text"
         }
     }
 
@@ -425,7 +424,6 @@ class Camera2BasicFragment : Fragment(){
             throw RuntimeException("Interrupted while trying to lock camera opening.", e)
         }
     }
-
 
 
     /**
