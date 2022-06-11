@@ -9,17 +9,26 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.nabinbhandari.android.permissions.PermissionHandler
+import com.nabinbhandari.android.permissions.Permissions
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import java.io.FileNotFoundException
+
 
 class MainActivity : AppCompatActivity() {
 
     private var flagimg = 0
     private var mCropImageUri: Uri? = null
+
+    var cameraPermission = arrayOf(Manifest.permission.CAMERA)
+    var storagePermission = arrayOf(
+        Manifest.permission.READ_EXTERNAL_STORAGE,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,17 +37,37 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun fromGallery(view: View?) {
-        val photoPickerIntent = Intent(Intent.ACTION_PICK)
-        photoPickerIntent.type = "image/*"
-        startActivityForResult(photoPickerIntent, SELECT_PICTURE) // method 1, get from gallery
-        flagimg = 0
+        Permissions.check(
+            this /*context*/,
+            storagePermission,
+            null /*rationale*/,
+            null /*options*/,
+            object : PermissionHandler() {
+                override fun onGranted() {
+                    startActivity(
+                        Intent(
+                            this@MainActivity,
+                            MainGalleryActivity::class.java
+                        )
+                    )
+                }
+            })
+
     }
 
     fun fromCamera(view: View?) {
-        /* Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(cameraIntent, CAMERA_REQUEST); // get from camera*/
-        flagimg = 1
-        startActivity(Intent(this@MainActivity, CameraActivity::class.java))
+        Permissions.check(
+            this /*context*/,
+            cameraPermission,
+            null /*rationale*/,
+            null /*options*/,
+            object : PermissionHandler() {
+                override fun onGranted() {
+                    flagimg = 1
+                    startActivity(Intent(this@MainActivity, CameraActivity::class.java))
+                }
+            })
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -124,7 +153,6 @@ class MainActivity : AppCompatActivity() {
             .setMultiTouchEnabled(true)
             .start(this)
     }
-
 
 
     override fun finish() {
